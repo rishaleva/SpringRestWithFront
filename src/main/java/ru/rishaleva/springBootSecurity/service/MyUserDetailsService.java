@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import ru.rishaleva.springBootSecurity.Dao.UserDao;
-import ru.rishaleva.springBootSecurity.Dao.UserDaoImpl;
+import ru.rishaleva.springBootSecurity.dao.UserDao;
+import ru.rishaleva.springBootSecurity.dao.UserDaoImpl;
 import ru.rishaleva.springBootSecurity.model.Role;
 import ru.rishaleva.springBootSecurity.model.User;
 

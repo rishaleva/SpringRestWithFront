@@ -4,8 +4,8 @@ package ru.rishaleva.springBootSecurity.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.rishaleva.springBootSecurity.Dao.RoleDao;
-import ru.rishaleva.springBootSecurity.Dao.UserDao;
+import ru.rishaleva.springBootSecurity.dao.RoleDao;
+import ru.rishaleva.springBootSecurity.dao.UserDao;
 import ru.rishaleva.springBootSecurity.model.User;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package ru.rishaleva.springBootSecurity.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.rishaleva.springBootSecurity.Dao.RoleDao;
+import ru.rishaleva.springBootSecurity.dao.RoleDao;
 import ru.rishaleva.springBootSecurity.model.Role;
 
 import java.util.List;

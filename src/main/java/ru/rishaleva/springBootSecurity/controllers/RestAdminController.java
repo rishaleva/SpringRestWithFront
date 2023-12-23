@@ -4,6 +4,8 @@ package ru.rishaleva.springBootSecurity.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.rishaleva.springBootSecurity.model.Role;
@@ -59,6 +61,9 @@ public class RestAdminController {
     @PostMapping("/users")
     public ResponseEntity<User> addNewUser(@RequestBody @Valid User newUser, BindingResult bindingResult) {
         userService.addUser(newUser);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        userService.updateUser(newUser);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
 
     }

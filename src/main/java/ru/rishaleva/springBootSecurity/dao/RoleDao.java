@@ -1,4 +1,4 @@
-package ru.rishaleva.springBootSecurity.Dao;
+package ru.rishaleva.springBootSecurity.dao;
 
 import org.springframework.stereotype.Repository;
 import ru.rishaleva.springBootSecurity.model.Role;
