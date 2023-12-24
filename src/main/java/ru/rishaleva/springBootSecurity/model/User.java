@@ -1,6 +1,7 @@
 package ru.rishaleva.springBootSecurity.model;
 
 
+import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,8 +10,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
+@EqualsAndHashCode
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
@@ -142,18 +143,6 @@ public class User implements UserDetails {
         return true;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return username.equals(user.username) && lastname.equals(user.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(username, lastname);
-    }
 }
 
 

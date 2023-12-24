@@ -5,8 +5,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import ru.rishaleva.springBootSecurity.test.repositories.RoleRepository;
-import ru.rishaleva.springBootSecurity.test.repositories.UserRepository;
+import ru.rishaleva.springBootSecurity.service.RoleServiceImpl;
+import ru.rishaleva.springBootSecurity.service.UserServiceImpl;
 import ru.rishaleva.springBootSecurity.model.Role;
 import ru.rishaleva.springBootSecurity.model.User;
 
@@ -17,14 +17,13 @@ import java.util.List;
 @Component
 public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
-    private RoleRepository roleRepository;
-    private UserRepository userRepository;
+    private RoleServiceImpl roleService;
+    private UserServiceImpl userService;
     private PasswordEncoder passwordEncoder;
-
     @Autowired
-    public Init(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+    public Init(RoleServiceImpl roleService, UserServiceImpl userService, PasswordEncoder passwordEncoder) {
+        this.roleService = roleService;
+        this.userService = userService;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -33,11 +32,11 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
         Role userRole = new Role();
         userRole.setName("ROLE_USER");
-        roleRepository.save(userRole);
+        roleService.addRole(userRole);
 
         Role adminRole = new Role();
         adminRole.setName("ROLE_ADMIN");
-        roleRepository.save(adminRole);
+        roleService.addRole(adminRole);
 
         List<Role> userRoles = Arrays.asList(userRole);
         List<Role> adminRoles = Arrays.asList(adminRole);
@@ -49,7 +48,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         admin.setEmail("admin@mail.ru");
         admin.setPassword(passwordEncoder.encode("admin"));
         admin.setRoles(adminRoles);
-        userRepository.save(admin);
+        userService.addUser(admin);
 
         User user = new User();
         user.setUsername("user");
@@ -58,6 +57,6 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         user.setEmail("user@mail.ru");
         user.setPassword(passwordEncoder.encode("user"));
         user.setRoles(userRoles);
-        userRepository.save(user);
+        userService.addUser(user);
     }
 }

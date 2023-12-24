@@ -2,8 +2,8 @@ package ru.rishaleva.springBootSecurity.dao;
 
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.rishaleva.springBootSecurity.model.Role;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -31,4 +31,10 @@ public class RoleDaoImpl implements RoleDao {
         query.setParameter("name", name);
         return (Role) query.getSingleResult();
     }
+    @Transactional
+    @Override
+    public void addRole(Role role) {
+        entityManager.persist(role);
+    }
+
 }

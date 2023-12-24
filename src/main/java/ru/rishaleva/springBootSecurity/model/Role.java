@@ -1,9 +1,10 @@
 package ru.rishaleva.springBootSecurity.model;
 
+import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-
+@EqualsAndHashCode
 @Entity
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
