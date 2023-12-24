@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+
 @EqualsAndHashCode
 @Entity
 @Table(name = "roles")

@@ -10,5 +10,6 @@ public interface RoleService {
     List<Role> getRoles();
 
     Role findById(Long id);
+
     void addRole(Role role);
 }
