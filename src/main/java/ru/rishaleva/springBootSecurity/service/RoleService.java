@@ -2,7 +2,6 @@ package ru.rishaleva.springBootSecurity.service;
 
 
 import ru.rishaleva.springBootSecurity.model.Role;
-import ru.rishaleva.springBootSecurity.model.User;
 
 import java.util.List;
 

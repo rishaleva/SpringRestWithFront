@@ -4,13 +4,14 @@ import org.springframework.stereotype.Repository;
 import ru.rishaleva.springBootSecurity.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
 public interface UserDao {
     User findByUserEmail(String email);
 
-    User getUser(Long id);
+    Optional<User> getUser(Long id);
 
     List<User> getAllUsers();
 
@@ -18,6 +19,6 @@ public interface UserDao {
 
     void removeUser(Long id);
 
-    void updateUser(User user);
+    void updateUser(Long id, User user);
 
 }
