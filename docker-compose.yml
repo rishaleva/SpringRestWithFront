@@ -13,9 +13,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
     restart: on-failure
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mybdtest
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+
     depends_on:
     - db
 
